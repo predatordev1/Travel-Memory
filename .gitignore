@@ -20,3 +20,6 @@ override.tf.json
 *.pem
 *.key
 .env
+
+*.pem
+~/.ssh/travel-memory
