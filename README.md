@@ -114,6 +114,54 @@ https://github.com/predatordev1/Travel-Memory/blob/main/Travel%20memory.drawio
 
 
 # Part 2: Configuration and Deployment with Ansible
+  - ## Ansible Configuration:
+    ```bash  
+      ansible --version
+
+    ```
+    <img width="1337" height="250" alt="image" src="https://github.com/user-attachments/assets/d8ea8b20-e376-40ca-8ed4-9f4b746ca1bd" />
+    <img width="1205" height="356" alt="image" src="https://github.com/user-attachments/assets/584c2c7e-7381-4e76-a7e9-f02f483d8a11" />
+
+ - ## Web Server Setup:
+    - Written an Ansible playbook to install Node.js and NPM on the web server.
+      <img width="1202" height="610" alt="image" src="https://github.com/user-attachments/assets/64f99c30-8ac0-4432-8753-9ca410a4a8cc" />
+      <img width="1462" height="526" alt="image" src="https://github.com/user-attachments/assets/04249eb3-2a8c-46bd-8bb3-07d7381a8271" />
+
+    - Cloning of Github Repo in Both Instances
+      <img width="1023" height="501" alt="image" src="https://github.com/user-attachments/assets/c29daffa-d913-4261-9766-ab5c644abce7" />
+      <img width="1372" height="642" alt="image" src="https://github.com/user-attachments/assets/f7039d21-4382-4402-bd94-f92bba99327c" />
+
+  - ## Database Server Setup:
+    - frontend setup
+      
+      <img width="973" height="602" alt="image" src="https://github.com/user-attachments/assets/0eb62681-ff94-4d40-961b-bdf3aafdaf57" />
+
+    - backend setup
+
+      <img width="935" height="365" alt="image" src="https://github.com/user-attachments/assets/394ac3ff-e3a0-4819-add4-c97281ae6a10" />
+
+   - ## Application Deployment:
+     - Frontend deployment:
+       
+       <img width="978" height="830" alt="image" src="https://github.com/user-attachments/assets/d4e926e9-c4ee-4b2d-bd45-84fe25ab8aa3" />
+       <img width="1340" height="645" alt="image" src="https://github.com/user-attachments/assets/17348127-f310-431c-a7f0-1161582e7fd6" />
+       <img width="1402" height="962" alt="image" src="https://github.com/user-attachments/assets/9f263222-b492-4863-8e11-8775f99315da" />
+
+     - Backend deployment:
+
+       <img width="1007" height="735" alt="image" src="https://github.com/user-attachments/assets/d10c9757-f007-4e97-b3a0-3c428fc0fa70" />
+       <img width="1405" height="522" alt="image" src="https://github.com/user-attachments/assets/05d24d01-a62d-4270-967c-25a0f2f8e103" />
+       <img width="1407" height="952" alt="image" src="https://github.com/user-attachments/assets/d6b5bd19-b6f7-4f16-b454-c6b8228847c4" />
+
+Thanks
+Author:
+Name: Devendra Kumar
+
+
+
+
+
+
 
 
    
