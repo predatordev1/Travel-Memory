@@ -100,6 +100,18 @@ https://github.com/predatordev1/Travel-Memory/blob/main/Travel%20memory.drawio
 - ## Resource Output:
   <img width="949" height="861" alt="image" src="https://github.com/user-attachments/assets/28a5f885-7ddd-4bf8-aebf-d32206e57a51" />
 
+ - ## Now time to Create all resources :
+   ```bash  
+      Create resources using Terraform script.
+      terraform validate
+      terraform plan
+      terraform apply
+
+   ```
+
+   <img width="968" height="409" alt="image" src="https://github.com/user-attachments/assets/dda16406-1721-4654-ac83-0ca8829e3e88" />
+
+
 
 # Part 2: Configuration and Deployment with Ansible
 
