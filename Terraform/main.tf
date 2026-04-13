@@ -129,6 +129,13 @@ resource "aws_vpc_security_group_ingress_rule" "frontend-ssh" {
   to_port           = 22
 }
 
+resource "aws_vpc_security_group_ingress_rule" "frontend-traffic" {
+  security_group_id = aws_security_group.travel-memory-frontend-sg.id
+  ip_protocol       = "tcp"
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 3000
+  to_port           = 3000
+}
 resource "aws_vpc_security_group_egress_rule" "frontend-egress" {
   security_group_id = aws_security_group.travel-memory-frontend-sg.id
   ip_protocol       = "-1"
@@ -151,6 +158,14 @@ resource "aws_vpc_security_group_ingress_rule" "backend-ssh" {
   to_port                      = 22
 }
 
+resource "aws_vpc_security_group_ingress_rule" "backend-3001" {
+  security_group_id = aws_security_group.travel-memory-backend-sg.id
+  ip_protocol       = "tcp"
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 3001
+  to_port           = 3001
+}
+
 resource "aws_vpc_security_group_egress_rule" "backend-egress" {
   security_group_id = aws_security_group.travel-memory-backend-sg.id
   ip_protocol       = "-1"
@@ -159,15 +174,10 @@ resource "aws_vpc_security_group_egress_rule" "backend-egress" {
 
 ################# EC2 Instances Launch ###########
 
-resource "aws_key_pair" "key_pair" {
-  key_name   = "travel-memory-key"
-  public_key = file("~/.ssh/travel-memory.pub")  
-}
-
 resource "aws_instance" "frontend-webserver" {
   ami = "ami-05d2d839d4f73aafb"
   instance_type = "t3.small"
-  key_name = aws_key_pair.key_pair.key_name
+  key_name = "travel-memory-key"
   vpc_security_group_ids = [aws_security_group.travel-memory-frontend-sg.id]
   subnet_id = aws_subnet.public-subnet-travel-memory.id
   associate_public_ip_address = true
@@ -180,7 +190,7 @@ resource "aws_instance" "frontend-webserver" {
 resource "aws_instance" "backend-webserver" {
   ami = "ami-05d2d839d4f73aafb"
   instance_type = "t3.small"
-  key_name = aws_key_pair.key_pair.key_name
+  key_name = "travel-memory-key"
   vpc_security_group_ids = [aws_security_group.travel-memory-backend-sg.id]
   subnet_id = aws_subnet.private-subnet-travel-memory.id
   tags = {

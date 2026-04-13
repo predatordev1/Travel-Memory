@@ -1,0 +1,61 @@
+---
+- name: Backend setup
+  hosts: backend
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install dependencies for MongoDB repo
+      ansible.builtin.apt:
+        name:
+          - gnupg
+          - curl
+        state: present
+
+    - name: Add MongoDB GPG key
+      ansible.builtin.shell:
+        cmd: curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+
+    - name: Add MongoDB repository
+      ansible.builtin.apt_repository:
+        repo: "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse"
+        state: present
+
+    - name: Update apt cache after adding repo
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install MongoDB          # ✅ now installs correctly
+      ansible.builtin.apt:
+        name: mongodb-org
+        state: present
+
+    - name: Start MongoDB service
+      ansible.builtin.service:
+        name: mongod
+        state: started
+        enabled: true
+
+    - name: Creation of .env file
+      ansible.builtin.copy:
+        dest: /home/ubuntu/TravelMemory/backend/.env
+        content: |
+          PORT={{ port }}
+          MONGO_URI={{ mongo_uri }}
+
+    - name: npm installation
+      ansible.builtin.command:
+        cmd: npm install
+        chdir: /home/ubuntu/TravelMemory/backend
+
+    - name: Install pm2 globally
+      ansible.builtin.command:
+        cmd: npm install -g pm2
+
+    - name: Start backend with pm2
+      ansible.builtin.command:
+        cmd: pm2 start index.js --name "backend"
+        chdir: /home/ubuntu/TravelMemory/backend

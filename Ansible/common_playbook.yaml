@@ -1,0 +1,25 @@
+---
+- name: Install and manage webservers
+  hosts: 
+    - frontend
+    - backend
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+    - name: Install nodejs and npm      
+      ansible.builtin.apt:
+        name:
+          - nodejs
+          - npm
+        state: present
+        
+    - name: Cloning of GitRepo
+      ansible.builtin.git:
+        repo: https://github.com/UnpredictablePrashant/TravelMemory.git
+        dest: /home/ubuntu/TravelMemory
+        update: true
+
+

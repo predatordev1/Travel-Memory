@@ -49,16 +49,12 @@ output "frontend_security_groups" {
   value = aws_security_group.travel-memory-frontend-sg.id
 }
 
-output "key-pair" {
-  value = aws_key_pair.key_pair.key_name
-}
-
 output "frontend-instance-id" {
   description = "frontend-travel-memory-instance-public-ip."
   value = aws_instance.frontend-webserver.public_ip
 }
 
 output "backend-instance-id" {
-  description = "backend-travel-memory-instance-public-ip."
-  value = aws_instance.backend-webserver.public_ip
+  description = "backend-travel-memory-instance-private_ip."
+  value = aws_instance.backend-webserver.private_ip
 }

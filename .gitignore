@@ -23,3 +23,6 @@ override.tf.json
 
 *.pem
 ~/.ssh/travel-memory
+travel-memory.pem
+inventory.ini
+travel-memory.pub
