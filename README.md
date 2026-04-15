@@ -20,7 +20,73 @@ https://github.com/predatordev1/Travel-Memory/blob/main/Travel%20memory.drawio
 | Backend | 3001 | Backend will be running using 3001 port and will communicate with Frontend |
 
 ## File structure:
+```bash
+.
+├── Ansible
+│   ├── backend.yaml
+│   ├── common_playbook.yaml
+│   ├── frontend.yaml
+│   ├── inventory.ini
+│   ├── terraform.tfstate
+│   ├── travel-memory.pem
+│   └── travel-memory.pub
+├── azure-pipelines.yml
+├── backend
+│   ├── conn.js
+│   ├── controllers
+│   │   └── trip.controller.js
+│   ├── index.js
+│   ├── models
+│   │   └── trip.model.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── routes
+│       └── trip.routes.js
+├── frontend
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── README.md
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── components
+│       │   ├── pages
+│       │   │   ├── AddExperience.js
+│       │   │   ├── ExperienceDetails.js
+│       │   │   └── Home.js
+│       │   └── UIC
+│       │       ├── Card.js
+│       │       ├── FeaturedCard.js
+│       │       └── Header.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── reportWebVitals.js
+│       ├── setupTests.js
+│       └── url.js
+├── LICENSE
+├── README.md
+├── Terraform
+│   ├── main.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   ├── terraform.tfstate
+│   ├── terraform.tfstate.backup
+│   ├── terraform.tfvars
+│   ├── travel-memory.pub
+│   ├── variable.tf
+│   └── version.tf
+└── Travel memory.drawio
 
+```
 ---
 
 # Part 1: Infrastructure Setup with Terraform
